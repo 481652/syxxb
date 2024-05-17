@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>学习报下载器</title>  
+    <script>  
+        function downloadNewspaper() {  
+            // 获取表单元素  
+            var xqInput = document.getElementById('xq'); // 学期  
+            var bbInput = document.getElementById('bb'); // 版本  
+            var njInput = document.getElementById('nj'); // 年级  
+            var qsInput = document.getElementById('qs'); // 期数
+            // 验证输入  
+            if (xqInput.value === "") {  
+                alert("请输入学期！");  
+                return;  
+            }  
+            if (bbInput.value === "") {  
+                alert("请输入版本！");  
+                return;  
+            }  
+  
+            // 选择年级学期  
+            var xqsx = "";  
+            var njnr = "";  
+            switch (njInput.value) {  
+                case "七上":  
+                    xqsx = "上";  
+                    njnr = "七年级";  
+                    break;  
+                case "七下":  
+                    xqsx = "下";  
+                    njnr = "七年级";  
+                    break;  
+                case "八上":  
+                    xqsx = "上";  
+                    njnr = "八年级";  
+                    break;  
+                case "八下":  
+                    xqsx = "下";  
+                    njnr = "八年级";  
+                    break;  
+                case "九上":  
+                    xqsx = "上";  
+                    njnr = "九年级";  
+                    break;  
+                case "九下":  
+                    xqsx = "下";  
+                    njnr = "九年级";  
+                    break;  
+                
+               
+                 
+                default:  
+                    alert("请选择年级！");  
+                    return;  
+            }  
+  
+            // 构建URL  
+            var url = "http://newspaper.ekwclass.com/download/?name=双语学习报-辅导测评周刊-" +  
+                xqInput.value + "学年" + xqsx + "学期-" + njnr + "-" + bbInput.value + "-辅测-第" + qsInput.value + "期.zip&" +  
+                "url=newspaper-data-ekwclass-com.oss-cn-qingdao.aliyuncs.com/newspaper_zip/teacher/双语学习报-辅导测评周刊-" +  
+                xqInput.value + "学年" + xqsx + "学期-" + njnr + "-" + bbInput.value + "-辅测-第" + qsInput.value + "期.zip";  
+  
+            // 打开URL（在新标签页或当前标签页，取决于浏览器设置）  
+            window.location.href = url;  
+        }  
+    </script>  
+</head>  
+<body>  
+  
+<h1>学习报下载器</h1>  
+  
+<form>  
+    <label for="xq">学期:</label>  
+    <input type="text" id="xq" required>  
+  
+    <label for="bb">版本:</label>  
+    <input type="text" id="bb" required>  
+  
+    <label for="nj">年级:</label>  
+    <select id="nj" required>  
+        <option value="">请选择</option>  
+        <option value="七上">七上</option>  
+        <option value="七下">七下</option>  
+        <option value="八上">八上</option>  
+        <option value="八下">八下</option>  
+        <option value="九上">九上</option>  
+        <option value="九下">九下</option>  
+          
+    </select>  
+  
+    <label for="qs">期数:</label>  
+    <input type="number" id="qs" required>  
+  
+    <button type="button" onclick="downloadNewspaper()">下载</button>  
+</form>
+<p>
+    使用教程
+1.在"版本"栏中输入报纸版本，一般在报纸顶部 <br>
+可以找到，如"X版Z专版"；<br>
+2.选择您的年级；<br>
+3.选择期数，一般在报纸顶部可以找到。<br>
+4.填写学期，如"2023-2024"<br>
+请正确填写信息，填写错误将返回无效文件。<br>
+By LCS 2020-2024 1.0版本 资源仅供参考 <br>
+</p>  
+  
+</body>  
+</html>
